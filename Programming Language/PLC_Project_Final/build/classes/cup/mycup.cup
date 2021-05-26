@@ -1,0 +1,295 @@
+/* ----------------------User code--------------------*/
+/* Contains the grammar and semantic rules for the language. */
+
+package src;
+import java_cup.runtime.*;
+import java.util.*;
+import src.ConsoleOutput.OutputType;
+
+parser code {:
+    
+    public void report_error(String message, Object info)
+    {
+    System.out.println("REPORT ERROR CALLED");
+    StringBuffer m = new StringBuffer("Error");
+   
+    if (info instanceof java_cup.runtime.Symbol) {
+            java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
+   
+            if (s.left >= 0) {                
+                m.append(" in line "+(s.left+1));   
+                if (s.right >= 0)                    
+                    m.append(", column "+(s.right+1));
+            }
+        }
+   
+        m.append(" : "+message);
+        System.err.println(m);
+        ConsoleOutput.getInstance().setText(m.toString(), OutputType.ERROR);
+    }
+
+    public void sem_error(String context , String message)
+    {
+        System.out.println("SEM ERROR CALLED");
+     	System.err.println("Semantic Error:"+ "<"+context+">" + message);
+        ConsoleOutput.getInstance().setText("Semantic Error:"+ "<"+context+">" + message, OutputType.ERROR);
+    }
+
+    public void type_error (String context,String message)
+    {
+        System.out.println("TYPE ERROR CALLED");
+        System.err.println("Type Error:"+ "<"+context+">" + message);
+        ConsoleOutput.getInstance().setText("Type Error:"+ "<"+context+">" + message, OutputType.ERROR);
+    }
+
+    public void report_fatal_error(String message, Object info)
+    {
+        System.out.println("FATAL ERROR CALLED");
+        report_error(message, info);
+        ConsoleOutput.getInstance().setText("Syntax Error: " + message, OutputType.ERROR);
+    }
+:};
+   
+/* ------------Grammar symbol declarations----------- */
+terminal                        PLUS, MINUS, TIMES, DIVIDE, MOD, SEMI, COMMA, EQUALS;
+terminal                        LPAREN, RPAREN;
+terminal                        ET, NET, LT, LTE, GT, GTE, AND, OR;
+terminal                        INT, FLOAT, BOOL, STRING;
+terminal                        IF, ENDIF, ELSE, WHILE, PRINT, PRINTLN;
+terminal                        BEGIN, END;
+
+terminal Integer                INT_LITERAL;
+terminal Float                  FLOAT_LITERAL;
+terminal String                 STRING_LITERAL;
+terminal Boolean                BOL;
+terminal String                 VAR;
+
+non terminal Object             program;
+non terminal Statement          declarations, declaration, statement;
+non terminal Type               type;
+non terminal Statement          assignment, ifelse, while, print, println;
+non terminal Statements         statements;
+non terminal ArrayList<String>  variables;
+non terminal Aexp               expr, term, factor, relop;
+
+
+/* ------------Grammar rules----------- */
+/* Program */
+program      ::= declarations:dd statements:ss {: ss.execute(); :}
+                |
+                statements:ss {: ss.execute(); :};
+
+/* Declarations (MULTIPLE) */
+declarations ::= declarations:dd declaration:d {: :}
+                |
+                declaration:d {: :};
+
+/* Declaration (SINGLE) */
+declaration  ::= type:t variables:vv SEMI 
+                {:
+                    for(String v: vv) {
+                        if(Environment.table.containsKey(v)) {
+                            System.out.println("Duplicate Declaration");
+                            parser.sem_error(v, "Duplicate Declaration "+v);
+                        } else {
+                            TypeValue tv = new TypeValue();
+                            if (t.isInteger()) {
+                                tv = new TypeValue(0);
+                            }
+                            if (t.isFloating_point()) {
+                                tv = new TypeValue(0.0f);
+                            }
+                            if (t.isString()) {
+                                tv = new TypeValue("");
+                            }
+                            if (t.isBool()) {
+                                tv = new TypeValue(false);
+                            }
+                            Environment.table.put(v, tv);
+
+                            RESULT = Statement.assignment(t, v);
+    
+                        }
+                    }
+                    vv.clear();
+                :};
+
+/* Variables (MULTIPLE) */
+variables   ::= variables:vv COMMA VAR:v 
+                {:
+                    vv.add(v);
+                    RESULT = vv;
+                 :}
+                |
+                VAR:v 
+                {:
+                    Variables.list.add(v);
+                    RESULT = Variables.list;
+                :};
+
+/* Statements (MULTIPLE) */
+statements  ::= statements:ss statement:s {: RESULT = new Statements(ss, s); :}
+                |
+                statement:s {: RESULT = new Statements(s); :};
+
+/* Statement (SINGLE) */
+statement   ::= assignment:ass SEMI 
+                {: 
+                    RESULT = ass;
+                :}
+                |
+                ifelse:ie {: RESULT = ie; :}
+                |
+                while:wh {: RESULT = wh; :}
+                |
+                print:prt SEMI {: RESULT = prt; :}
+                |
+                println:prtln SEMI {: RESULT = prtln; :}
+                |
+                BEGIN statements:ss END {: RESULT = Statement.list(ss); :};
+
+/* If Else */
+ifelse      ::= IF LPAREN expr:e RPAREN statement:s ENDIF
+                {: 
+                    if((Boolean)e.getType().isBool()) {
+                        RESULT = Statement.ifthen(e,s);
+                    } else {
+                        parser.type_error("e", " : expression in the if condition must be a boolean.");
+                    }
+                :}
+                |
+                IF LPAREN expr:e RPAREN statement:s1 ELSE statement:s2 ENDIF 
+                {: 
+                    if((Boolean)e.getType().isBool()) {
+                        RESULT = Statement.ifthenelse(e,s1,s2);
+                    } else {
+                        parser.type_error("e", " : expression in the if condition must be a boolean.");
+                    }
+                :};
+
+/* While DO loop */
+while       ::= WHILE LPAREN expr:e RPAREN statement:s 
+                {: 
+                if((Boolean)e.getType().isBool()) {
+                        RESULT = Statement.whileloop(e,s);
+                    } else {
+                        parser.type_error("e", " : expression in the if condition must be a boolean.");
+                    }
+                :};
+
+/* Print */
+print       ::= PRINT LPAREN expr:e RPAREN
+                {: 
+                    RESULT = Statement.print(e);
+                :};
+
+/* Print New Line */
+println     ::= PRINTLN LPAREN RPAREN
+                {:
+                    RESULT = Statement.println();
+                :};
+
+/* Type */
+type        ::= INT {: RESULT = new Type().integer(); :}
+                | 
+                FLOAT {: RESULT = new Type().floating_point(); :}
+                | 
+                STRING {: RESULT = new Type().string(); :}
+                | 
+                BOOL {: RESULT = new Type().bool(); :}; 
+
+/* Assignment */
+assignment  ::= type:t VAR:v EQUALS expr:e 
+                {: 
+                if(Environment.table.containsKey(v)) { 
+                    Environment.printEnvTable();
+                    parser.sem_error(v,"Duplicate declaration");
+                } else {
+                        if (t.isInteger())
+                        {
+                            Environment.table.put(v,new TypeValue(0));
+                        }
+                        if (t.isString())
+                        {                           
+                            Environment.table.put(v,new TypeValue(""));                             
+                        }
+                        if (t.isFloating_point())
+                        {                            
+                            Environment.table.put(v,new TypeValue(0.0f));
+                        }
+                        if (t.isBool())
+                        {
+                            Environment.table.put(v,new TypeValue(false));
+                        }
+
+                        if (Type.equals(Environment.table.get(v).getType(), e.getType())) {
+                            RESULT = Statement.assignment(v, e);
+                        } else {
+                            parser.type_error("e", " : expression in the assignment statement must have the type " + Environment.table.get(v).getType().getTypeName());
+                        }
+
+                        //RESULT = Statement.assignment(t, v, e);
+                    }
+                :}
+                |
+                VAR:v EQUALS expr:e 
+                {: 
+                    if (!Environment.table.containsKey(v)) {
+                        parser.sem_error(v, "Variable undeclared");
+                    } else {
+                        if (Type.equals(Environment.table.get(v).getType(), e.getType())) {
+                            RESULT = Statement.assignment(v, e);
+                        } else {
+                            parser.type_error("e", " : expression in the assignment statement must have the type " + Environment.table.get(v).getType().getTypeName());
+                        }
+                    }
+                :};
+
+
+/* Expression */
+expr        ::= expr:e PLUS factor:f {: RESULT = new Aexp(new Args(e, f), sym.PLUS); :}
+                |
+                expr:e MINUS factor:f {: RESULT = new Aexp(new Args(e, f), sym.MINUS); :}
+                |
+                factor:f {: RESULT = f; :}
+                |
+                relop:r {: RESULT = r; :};
+
+/* Factor */
+factor      ::= factor:f TIMES term:t {: RESULT = new Aexp(new Args(f, t), sym.TIMES); :}
+                |
+                factor:f DIVIDE term:t {: RESULT = new Aexp(new Args(f, t), sym.DIVIDE); :}
+                |
+                factor:f MOD term:t {: RESULT = new Aexp(new Args(f, t), sym.MOD); :}
+                |
+                term:t {: RESULT = t; :};
+
+/* Relational Operator */
+relop       ::= term:t1 AND term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.AND); :}
+                |
+                term:t1 OR term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.OR); :}
+                |
+                term:t1 LT term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.LT); :}
+                |
+                term:t1 LTE term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.LTE); :}
+                |
+                term:t1 GT term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.GT); :}
+                |
+                term:t1 GTE term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.GTE); :}
+                |
+                term:t1 ET term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.ET); :}
+                |
+                term:t1 NET term:t2 {: RESULT = new Aexp(new Args(t1, t2), sym.NET); :};
+
+/* Term */
+term        ::= LPAREN expr:e RPAREN {: RESULT = e; :}
+                |
+                INT_LITERAL:i {: RESULT = new Aexp(i); :}
+                |
+                FLOAT_LITERAL:f {: RESULT = new Aexp(f); :}
+                |
+                STRING_LITERAL:s {: RESULT = new Aexp(s, s); :}
+                |
+                VAR:v {: RESULT = new Aexp(v); :}
+                |
+                BOL:b {: RESULT = new Aexp(b); :};
