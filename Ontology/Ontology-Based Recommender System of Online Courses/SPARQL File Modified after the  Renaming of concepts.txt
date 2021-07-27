@@ -1,0 +1,158 @@
+Competency Questions
+
+1.Recommend top five rating courses which are free with certificates. 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course ?Name WHERE {
+	?Course oc:CourseName ?Name.
+	?Course oc:CourseCertificate true.
+	?Course oc:CourseRating ?R. FILTER (?R >=4)
+	?Course oc:CourseFee 0.
+}
+
+--------------------------------------------------------------------------------
+
+2.List some of the courses for learners who want a certificate after attending the course without having to do assignment, quiz, and exam. 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course ?Name WHERE {
+	?Course oc:CourseName ?Name.
+	?Course oc:CourseCertificate true.
+	?Course oc:CourseAssessment false
+}
+--------------------------------------------------------------------------------
+
+3.Mrs. B is working in an organization and does not have time to attend online live courses on Data Science; recommend some courses for her which are not live session courses. 
+
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?CourseCategory  ?Name WHERE {
+	?CourseCategory rdf:type oc:DataScienceCategoryCourses.
+	?CourseCategory oc:CourseName ?Name.
+	?CourseCategory oc:CourseSession ?x FILTER regex(?x, "Recorded")
+}
+
+--------------------------------------------------------------------------------
+
+4.Mr. A is from a management background, and he wants to learn some computer networking related courses, ontology shall recommend some courses for him. 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?CourseCategory  ?Name WHERE {
+	?CourseCategory rdf:type oc:NetworkingCategoryCourses.
+	?CourseCategory oc:CourseName ?Name
+}
+Order by ?CourseCategory
+
+--------------------------------------------------------------------------------
+
+5.Mr. C is a new project manager in K-Bank, and he has to develop an information system for ATM machines. What are the courses that will help him to manage the project well?
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course ?Name WHERE {
+	?Course oc:CourseName ?Name 
+	FILTER regex(?Name, "Management", "i")
+}
+Order By ?Course
+--------------------------------------------------------------------------------
+
+6.Mrs. D wants to apply for a job and for that job she needs a Software Training course certificate, and the deadline of the job application is in 1 month. List some of the Software Training courses with certificates that she can obtain within a month (45 hours). 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course  ?Name WHERE {
+	?Course rdf:type oc:SoftwareEngineeringCategoryCourses.
+	?Course oc:CourseName ?Name.
+	?Course oc:CourseDuration ?x FILTER (?x <=20)
+}
+Order by ?CourseCategory
+
+--------------------------------------------------------------------------------
+
+7.Which is the highest rated course of Author XYZ which is free of cost?
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course  ?Name ?Author WHERE {
+	?Course oc:CourseName ?Name.
+	?Course oc:hasAuthor ?a.
+	?a oc:AuthorName ?Author. FILTER regex(?Author, "Younten").
+	?Course oc:CourseFee 0
+
+}
+--------------------------------------------------------------------------------
+
+8.If I take the ABC course, what are some of the prerequisite courses that I need to attend? 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course  ?Name ?Learner ?Prerequiste ?RName WHERE {
+	?Course oc:CourseName ?Name.
+	?Course oc:isLearnBy ?a.
+	?a oc:LearnerName ?Learner. FILTER regex(?Learner, "Henry").
+	?Prerequiste oc:isPrerequisteOf ?Course.
+	?Prerequiste oc:CourseName ?RName
+}
+
+--------------------------------------------------------------------------------
+
+9.List some of the advanced/recommended courses after completing a particular course. 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course  ?Name ?Learner ?Advancement ?RName WHERE {
+	?Course oc:CourseName ?Name.
+	?Course oc:isLearnBy ?a.
+	?a oc:LearnerName ?Learner. FILTER regex(?Learner, "Henry").
+	?Advancement oc:isAdvancementOf ?Course.
+	?Advancement oc:CourseName ?RName
+}
+
+or
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course  ?Name ?Advancement ?AName WHERE {
+	?Course oc:CourseName ?Name.
+	?Advancement oc:isAdvancementOf ?Course.
+	?Advancement oc:CourseName ?AName
+
+}
+
+--------------------------------------------------------------------------------
+10.Mrs. E has some budget limitation; recommend some courses which are below or equal to 100 Euro to her.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course  ?Name  WHERE {
+	?Course oc:CourseName ?Name.
+	?Course oc:CourseFee ?x FILTER (?x <=100 && ?x !=0)
+}
+
+
+--------------------------------------------------------------------------------
+Extra:Check the recent updated course.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oc: <http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#>
+SELECT ?Course  ?Name  ?Update WHERE {
+	?Course oc:CourseName ?Name.
+	?Course oc:CourseLastUpdate ?Update
+}
+Order By DESC(?Update)

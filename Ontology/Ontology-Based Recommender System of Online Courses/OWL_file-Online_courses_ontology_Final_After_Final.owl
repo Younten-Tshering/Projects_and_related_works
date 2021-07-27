@@ -1,0 +1,1436 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#"
+     xml:base="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-20="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasAdvancement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasAdvancement">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isAdvancementOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasAuthor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isAuthorOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isCategoryOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasLearn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasLearn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isLearnBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Learner"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasOrganizer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasOrganizer">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isOrganizerOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOragnizer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasPrerequisite -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasPrerequisite">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isPrerequisteOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isAdvancementOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isAdvancementOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isAuthorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isAuthorOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isCategoryOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isCategoryOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isLearnBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isLearnBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Learner"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isOrganizerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isOrganizerOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOragnizer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isPrerequisteOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isPrerequisteOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#AuthorName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#AuthorName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseAdvancement -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseAdvancement">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseAssessment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseAssessment">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCertificate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCertificate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseDuration">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFee -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFee">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseLastUpdate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseLastUpdate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CoursePrerequisite -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CoursePrerequisite">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseRating -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseRating">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseSession -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseSession">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#LearnerName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#LearnerName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Learner"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOCName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOCName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOC"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#UniversityName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#UniversityName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#University"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#AdvancedCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#AdvancedCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isAdvancementOf"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Applied_Data_Science -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Applied_Data_Science">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Data_Science"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Engineering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CertificateCoursesWithoutAssessment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CertificateCoursesWithoutAssessment">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseAssessment"/>
+                                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCertificate"/>
+                                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#ComputerNetwokingCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#ComputerNetwokingCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#NetworkingCategoryCourses"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseName"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFromYounten -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFromYounten">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasAuthor"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A4"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseLearnedByHenry -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseLearnedByHenry">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isLearnBy"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#L2"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOragnizer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOragnizer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseWithHighRating -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseWithHighRating">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseRating"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseWithoutCertificate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseWithoutCertificate">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCertificate"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CoursesFromHarvardUniversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CoursesFromHarvardUniversity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasOrganizer"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CoursesWithLowFee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CoursesWithLowFee">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFee"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DataScienceCategoryCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DataScienceCategoryCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Data_Science"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Data_Science -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Data_Science">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Diploma_in_Computer_Networking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Diploma_in_Computer_Networking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#FreeCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#FreeCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFee"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#FreeHighRatingCoursesOfAuthor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#FreeHighRatingCoursesOfAuthor">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFromYounten"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseWithHighRating"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#FreeCourses"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#HighRatingCertificateFreeCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#HighRatingCertificateFreeCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseWithHighRating"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCertificate"/>
+                                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseFee"/>
+                                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Information_System_Design_and_Management -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Information_System_Design_and_Management">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Engineering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Introduction_Data_Science -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Introduction_Data_Science">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Data_Science"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Juniper_Open_Learning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Juniper_Open_Learning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Learner -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Learner"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOragnizer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#ManagementCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#ManagementCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseName"/>
+                        <owl:hasValue>Information System Design and Management</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#NetworkingCategoryCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#NetworkingCategoryCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking_in_Google_Cloud -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking_in_Google_Cloud">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#OutdatedCourse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#OutdatedCourse">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseLastUpdate"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-01-01T09:00:00</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#PrerequisiteCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#PrerequisiteCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isPrerequisteOf"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#PrerequisiteForHerny -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#PrerequisiteForHerny">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isPrerequisteOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#isLearnBy"/>
+                                <owl:hasValue rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#L2"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#RecordedCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#RecordedCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DataScienceCategoryCourses"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseSession"/>
+                                <owl:hasValue>Recorded</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#ShortSoftwareCoursesWithCertificates -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#ShortSoftwareCoursesWithCertificates">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SoftwareEngineeringCategoryCourses"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseDuration"/>
+                                <owl:someValuesFrom>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCertificate"/>
+                                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SoftwareEngineeringCategoryCourses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SoftwareEngineeringCategoryCourses">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Engineering"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Design_and_Development -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Design_and_Development">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Engineering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Engineering -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Engineering">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Statistics_and_Data_Science -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Statistics_and_Data_Science">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOffered"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#hasCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Data_Science"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#University -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#University">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOragnizer"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tony</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kristina</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">William</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shyam</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Younten</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chaklam</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chutiporn</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thomas</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kathy</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Author"/>
+        <AuthorName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radhika</AuthorName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Applied_Data_Science"/>
+        <hasAdvancement rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS2"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A1"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U1"/>
+        <hasPrerequisite rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS3"/>
+        <CourseAdvancement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Python for Data Science and Machine Learning Bootcamp</CourseAdvancement>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-01T09:00:00</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Applied Data Science with Python</CourseName>
+        <CoursePrerequisite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introduction to Data Sciencce</CoursePrerequisite>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Applied_Data_Science"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A1"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U1"/>
+        <hasPrerequisite rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS1"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-01T09:00:01</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Python for Data Science and Machine Learning Bootcamp</CourseName>
+        <CoursePrerequisite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Applied Data Science with Python</CoursePrerequisite>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Introduction_Data_Science"/>
+        <hasAdvancement rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS1"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A2"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U1"/>
+        <CourseAdvancement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Applied Data Science with Python</CourseAdvancement>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-01T09:00:02</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introduction to Data Science</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Statistics_and_Data_Science"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A3"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U2"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-12-01T09:00:03</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MicroMasters Statistics and Data Science</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Live</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#L1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#L1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Learner"/>
+        <hasLearn rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE3"/>
+        <LearnerName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ronney</LearnerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#L2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#L2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Learner"/>
+        <hasLearn rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#DS1"/>
+        <LearnerName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Henry</LearnerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOC"/>
+        <UniversityName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coursera</UniversityName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOC"/>
+        <UniversityName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Udemy</UniversityName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOC"/>
+        <UniversityName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edX</UniversityName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#MOOC"/>
+        <UniversityName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cisco CCNA</UniversityName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Juniper_Open_Learning"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A7"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M2"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-01T09:00:06</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Juniper Open Learning</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking_in_Google_Cloud"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A8"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M3"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-01T09:00:06</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Networking in Google Cloud</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Diploma_in_Computer_Networking"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A9"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M1"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-01T09:00:06</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Bits and Bytes of Computer Networking</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Diploma_in_Computer_Networking"/>
+        <hasAdvancement rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N5"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A4"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M4"/>
+        <CourseAdvancement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer Netwoking</CourseAdvancement>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-01T09:00:06</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introdution to Open Source Networking Technologies</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Diploma_in_Computer_Networking"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A10"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M4"/>
+        <hasPrerequisite rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#N4"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</CourseFee>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer Netwoking</CourseName>
+        <CoursePrerequisite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introdution to Open Source Networking Technologies</CoursePrerequisite>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Information_System_Design_and_Management"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A4"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#M1"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-01T09:00:03</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software Engineering Training</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Information_System_Design_and_Management"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A6"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U3"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-01T09:00:06</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Information System Design and Management</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Design_and_Development"/>
+        <hasAdvancement rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE4"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A5"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U3"/>
+        <CourseAdvancement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software Architecture and Design</CourseAdvancement>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-12-01T09:00:04</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learn Software Design and Development</CourseName>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Design_and_Development"/>
+        <hasAuthor rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#A5"/>
+        <hasOrganizer rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U3"/>
+        <hasPrerequisite rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#SE3"/>
+        <CourseAssessment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseAssessment>
+        <CourseCertificate rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</CourseCertificate>
+        <CourseDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</CourseDuration>
+        <CourseFee rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</CourseFee>
+        <CourseLastUpdate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-01T09:00:05</CourseLastUpdate>
+        <CourseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software Architecture and Design</CourseName>
+        <CoursePrerequisite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learn Software Design and Development</CoursePrerequisite>
+        <CourseRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</CourseRating>
+        <CourseSession rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recorded</CourseSession>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#University"/>
+        <UniversityName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harvard</UniversityName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#University"/>
+        <UniversityName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MIT</UniversityName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#U3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#University"/>
+        <UniversityName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AIT</UniversityName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Course"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseCategory"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#CourseOragnizer"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Data_Science"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Networking"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yountentshering/ontologies/2021/6/untitled-ontology-20#Software_Engineering"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
