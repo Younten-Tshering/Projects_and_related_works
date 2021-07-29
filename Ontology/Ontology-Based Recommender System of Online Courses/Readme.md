@@ -1,7 +1,7 @@
 ># Ontology-Based Recommender System of Online Courses
 
 ### Class Hierarchy
-![alt](Asserted%20Hierarchy.png)
+![alt](AssertedHierarchy.png)
 
 ### Class Hierarchy with reasoning 
-![alt](Inferred%20Hierarchy.png)
+![alt](InferredHierarchy.png)
