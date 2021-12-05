@@ -1,0 +1,83 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<% if user_signed_in? %>
+    <% if is_admin? %>
+<div class="container-fluid">
+
+  <div class="row justify content center">
+    <div class="col-md">
+      <div class="col-md offset-md">
+      <div class="card">
+      <div class="card-body">
+      <h4 class="card-title">Users registered per month</h4>
+      <table class="table table-hover">
+        <thead class="table-dark">
+        <tr>
+          <th scope="col">Month</th>
+          <th scope="col">Number of users registered</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% @user_per_month = User.get_users_registered_per_month %>
+        <% @user_per_month.each_with_index do | u,index |  %>
+          <tr>
+            
+            <td><%= u[0] %></td>
+            <td><%= u[1] %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      </div>
+
+      
+
+
+      <div class="col-md offset-md">
+      <div class="card">
+      <div class="card-body">
+      <h4 class="card-title">Users registered per Year</h4>
+      <table class="table table-hover">
+        <thead class="table-dark">
+        <tr>
+          <th scope="col">Year</th>
+          <th scope="col">Number of users registered</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% @user_per_year = User.get_users_registered_per_year %>
+        <% @user_per_year.each_with_index do | u,index |  %>
+          <tr>
+            <td><%= u[0] %></td>
+            <td><%= u[1] %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      </div>
+      </div>
+      </div>
+
+
+    
+     
+    </div>
+  </div>
+
+
+</div>
+
+<% else %>
+    <p><b>You Cannot Access The Page</b><p>
+
+
+    <% end %>
+<% end %>
+
+<br>
+<br>
+<br>

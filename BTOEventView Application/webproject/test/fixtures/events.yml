@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  keyword: MyString
+  time: 2021-10-21 11:45:28
+  duration: 
+  url: MyString
+  loc_name: MyString
+  loc_lot: 9.99
+  loc_lat: 9.99
+  status: MyString
+  userid: 
+
+two:
+  name: MyString
+  description: MyText
+  keyword: MyString
+  time: 2021-10-21 11:45:28
+  duration: 
+  url: MyString
+  loc_name: MyString
+  loc_lot: 9.99
+  loc_lat: 9.99
+  status: MyString
+  userid: 

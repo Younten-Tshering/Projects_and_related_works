@@ -1,0 +1,27 @@
+<% if (user_signed_in? && (User.find_by_id(current_user.id).active == true)) %>
+<div class="container">
+<p><b>you are banned </b><p>
+<div>
+<% end %>
+
+<% if user_signed_in? %>
+
+<% if is_manager? || is_admin? %>
+
+
+<%= render 'form', event: @event %>
+
+<%= link_to 'Back', events_path, class: "butevent btn btn-primary" %>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<% else %>
+<p><b>you cannot reach this page</b><p>
+
+<% end %>
+<% end %>

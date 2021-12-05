@@ -1,0 +1,57 @@
+<% if user_signed_in? %>
+    <% if is_admin? %>
+
+<div class="container-fluid">
+  <div class="row justify content center">
+    <div class="col-md-7">
+      <h1>Recently registered users</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">User id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Organization</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Active?</th>
+            <th scope="col">Email</th>
+            <th scope="col">Created at</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        
+        <% @users = User.all %>
+          <% @users.each_with_index do | u |  %>
+            <tr>
+
+              <td><%= u.id %></td>
+              <td><%= u.first_name %></td>
+              <td><%= u.last_name %></td>
+              <td><%= u.organazation %></td>
+              <td><%= u.designation %></td>
+            <% if u.active == true %>
+              <td> Not Active</td>
+            <% else %>
+              <td> Active </td>
+            <% end %>
+              <td><%= u.email %></td>
+              <td><%= u.created_at %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+</div>
+<% else %>
+    <p><b>You Cannot Access The Page</b><p>
+
+
+    <% end %>
+<% end %>
+
+<br>
+<br>
+<br>

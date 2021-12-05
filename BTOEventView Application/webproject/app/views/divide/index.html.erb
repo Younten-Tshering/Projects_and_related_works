@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Divide by Zero</title>
+
+  </head>
+    
+<body>
+
+
+
+    <br>
+
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+
+<h3>Divide by Zero</h3>
+
+<%= form_with url: "/calculate", method: :get do |form| %>
+    <%= form.label :numerator, "a number:" %>
+    <%= form.number_field :numerator, :required => true %>
+    <%= form.label :numerator, "/ 0" %>
+    <%= form.submit "Calculate" %>
+<% end %>
+
+<div class="jumbotron">
+    <div class="container">
+        <h3 class="display-3">Explanation:</h3>
+        <p>The above code takes any integer and divide it by zero which raise ZeroDivisionError.
+        By default the logging level in Rails set by defaults to INFO to production and DEBUG in testing and development. To apply changes and enable the stack trace for the production mode (full error reports) need to set config.consider_all_requests_local=true in the config/enviroment.
+        There are six level for logging levels such as info, debug, warn, fatal etc. In here we report by rails.logger.warn before the divide by zero exceptin. This message will be available in the application log folder.</p>
+    </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+marquee {
+    font-size: 100px;
+    font-weight: 800;
+    color: #0000FF;
+}
+
+
+.card-columns{
+    column-gap: 0.25rem;
+}

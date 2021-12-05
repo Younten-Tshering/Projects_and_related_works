@@ -1,0 +1,126 @@
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <br>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Think about how to classify each of the types of content on your site. Articles, comments on articles, news items, questions and answers, documents to be approved or rejected with comments, and so on. Each type of content will require a different favor of data model and moderation/approval/versioning process.</div>
+    <div class="card-body text-dark">
+    <p>For our project, there is only one major interface that will be displaying the events held or in progress by the organization to the public.</p>
+    <p>Therefore, the Project Manager, College Club Ambassadors, and Admin is allowed to do the CRUD operations and others can only view the Information.</p>
+    <p><b>Our web-based system or application – BTOEventView</b></p>
+    <p>1. Will display the Events of all the activities organized by the Bhutan Toilet Organization and its associations (college clubs).</p>
+    <p>2. Will be displaying events details from the event organizer.</p>
+    <p>3. Will be displaying the event’s organizer.</p>
+    <p>4. Will be displaying the location of events.</p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Design your content data model and discuss the implications of your design choices with potential users of the system. In general, there should be at least one category of user-submitted content with authoring workflow specific to your project and at least one question and answer forum. However, the specifics will be very dependent on your project's requirements. Document the design and your discussions on your site.</div>
+    <div class="card-body text-dark">
+    <p><b>Admin</b></p>
+    <p>He/she can ban/unban users, view user status and perform all tasks.</p>
+    <p><b>Project Manager and College Club Ambassadors</b></p>
+    <p>The above user can perform CRUD operations i.e., create events, read events, update the events, and delete the events.</p>
+    <p><b>Public</b></p>
+    <p>all can view the ongoing and past events.</p>
+    <%= image_tag "CURD.png", class: "img-fluid" %>
+    <p>The above figure content data model is managed:</p>
+    <p>1. User registration is retrieved from the database for admin.</p>
+    <p>2. Admin can check the list of users registered and perform the action to enable and disable.</p>
+    <p>3. If the user is approved by the admin, then the user becomes a project manager or college club ambassador.</p>
+    <p>4. Once approved, the user can perform a CRUD operation for events.</p>
+    <p>5. Then actions are stored in the database.</p>
+    <p>6. The main interface retrieved the information about the event from the database.</p>
+    <p>7. The general user or public can view the list of events created by the approved user.</p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Specify the workflow for each kind of content on your site and discuss the implications of your design choices with potential users of the system. Document the workflow design and your discussions on your site.</div>
+    <div class="card-body text-dark">
+    <p>It is a very fundamental project where we planned on making our website pretty simple. As our
+    project will be displaying the Events organized by the BTO. We planned on having the link to
+    this along with their website. On clicking the link, the users can view the events in a table format
+    with their organizer and below it, we will be displaying all details that are required to be
+    displayed.</p>
+    <p>We have only one interface where the operations can be performed by the Project Manager and
+    College Club Ambassadors. The other workflow of our design is explained in the above figure.</p>
+    <p>As a General Public will be able to:</p>
+    <p>• view the ongoing events</p>
+    <p>• view the past events</p>
+    <p>Project Manager and College Club Ambassadors will be able to:</p>
+    <p>• add events</p>
+    <p>• manage events (update and delete)</p>
+    <p>• update user profile</p>
+    <p>Admin will be able to:</p>
+    <p>• register user into the system</p>
+    <p>• perform all the action</p>
+    <p>• add users and add permission</p>
+    <p>• can disable and enable users.</p>
+
+
+    </div>
+    </div>
+    </div>
+
+    <hr>
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Design your versioning system. What is the versioning system for each type of content? Do you need a complete history of every version, or just a current version with the author of the last version? Make sure you think carefully about the needs of the user community. Document the versioning design on your site.</div>
+    <div class="card-body text-dark">
+    <p>For our BTOEventView application, we are not maintaining any versioning system separately.
+    During development, GitLab takes care of the version control.</p>
+    <p>For Versioning concept used for the concurrent user trying to update events in our application:</p>
+    <p><b>-> Optimistic locking is used where we allow concurrent users (Project Manager and
+    College Club Ambassador) to perform update events they like but track updates to the
+    database.</b></p>
+    <p>When one user attempts to update an old version of a record, an exception and transaction
+    rollback occurs.</p>
+    <p>In Rails, optimistic locking is enabled on any ActiveRecord class by adding a version column to
+    the database table:</p>
+    <p><i>alter table events add column lock_version int default 0;</i></p>
+
+    
+    </div>
+    </div>
+    </div>
+
+    <hr>
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Write UATs for a \skeletal&quot; implementation of the workflow for at least one type of content on your site then get the UATs to pass. Users should be able to get something up on your server and see it published.</div>
+    <div class="card-body text-dark">
+    <%= image_tag "cucum.PNG", class: "img-fluid" %>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Put your work online and commit to your Git repository when you are done. As with Problem Set 4, you should give us access to an administrator account so we can see your document workflow in action.</div>
+    <div class="card-body text-dark">
+    <p>Log in details for the admin account are mailed.</p>
+    <p>Content Management Manual will be soon uploaded</p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+</body>
+</html>

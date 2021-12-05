@@ -1,0 +1,35 @@
+<% if user_signed_in? %>
+<% if User.find_by_id(current_user.id).active == true %>
+<div class="container">
+<p><b>you cannot reach this page</b><p>
+<div>
+<% else %>
+
+<% if is_admin?  %>
+<h1>Editing Event</h1>
+<%= render 'form', event: @event %>
+
+<%= link_to 'Show', @event, class: "butshow btn btn-warning" %> |
+<%= link_to 'Back', events_path, class: "butevent btn btn-primary" %>
+<% end %>
+
+<% if is_manager? %>
+    
+    <% if User.find_by_id(@event.created_by).email == current_user.email %>
+    <h1>Editing Event</h1>
+    <%= render 'form', event: @event %>
+
+    <%= link_to 'Show', @event, class: "butshow btn btn-warning" %> |
+    <%= link_to 'Back', events_path, class: "butevent btn btn-primary" %>
+
+    <% else %>
+    <p><p>
+    <% end %>
+<% end %>
+
+<% end %>
+<% end %>
+<br>
+<br>
+<br>
+<br>

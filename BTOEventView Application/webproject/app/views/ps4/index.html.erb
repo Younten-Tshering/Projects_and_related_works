@@ -1,0 +1,170 @@
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <br>
+
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">All social Web applications have users, content, and user-to-content map. Specify what kind of information each of these areas will have in your application.</div>
+    <div class="card-body text-dark">
+    <p>As a General Public will be able to:</p>
+    <p>• view the ongoing events</p>
+    <p>• view the past events</p>
+    <p>Project Manager and College Club Ambassadors will be able to:</p>
+    <p>• register into system</p>
+    <p>• add events</p>
+    <p>• manage events (update and delete)</p>
+    <p>• update user profile</p>
+    <p>Admin will be able to:</p>
+    <p>• perform all the action</p>
+    <p>• add users and add permission</p>
+    <p>• can disable and enable users.</p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Learn how to avoid SQL injection and XSS attacks in your development framework and document and follow your plan for the rest of the project.</div>
+    <div class="card-body text-dark">
+    <p>Avoid SQL Injection</p>
+    <p>SQL injection mainly works when attacker can insert his/her query which would be SQL
+    keywords that are directly executed in raw SQL query the backend.
+    Then attacker can access numerous data and update his/her privileges. To avoid this, the input
+    taken from users is not directly used in the SQL query. We would rather use parameterized
+    queries and dynamic attribute-based finders.</p>
+    <p>Example:</p>
+    <p>User.where("name = '#{params[:name]'') # SQL Injection! =></p>
+    <p>User.where(["name = ?", "#{params[:name]}]) # No SQL Injection</p>
+    <p>Avoid XSS attacks</p>
+    <p>XSS attacks are Cross-Site Scripting attacks that occur when an attacker can send malicious code, usually in the form of a browser side script, to a different end user.</p>
+    <p>Rails has a built-in XSS protection mechanism which automatically HTML escapes all the data being transferred from Rails to HTML.</p>
+    <p>HTML escaping substitutes HTML entities such as '<' and '>' with  '&lt' and '&gt' so that the scripts "<script>" "</script>" will be escaped. Hence, whatever malicious code the attacker may post to the application will be HTML escaped and not get executed.</p>
+    
+
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Audit your software for any sensitive data like database passwords make sure they are secure. Document the result of your audit and plan (Link is provided in Web8).</div>
+    <div class="card-body text-dark">
+    <p>We use "devise" rails gem which manages securing the login, sign up.</p>
+    <p>It uses "Bycrypt" gem to encrypt the passwords in the database. It hashes the password.</p>
+    <p>We also have confirmed email verification on registration that ensures spam mails are not created on the server.</p>
+
+   
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Define your user data model.</div>
+    <div class="card-body text-dark">
+    <%= image_tag "datamodel.png", class: "img-fluid" %>
+    <p>User</p>
+    <p>Database consists of 4 tables shown in figure. User table represents the users of BTOEventView. It maintains 3 different roles i.e., admin, project manager and college club ambassador. It has other info first_name, middle_name and last_name. It also has is_XXX which is used to ban/unban user account.</p>
+    <p>Event</p>
+    <p>Event has event name, description, time, duration. It has a foreign key that is user id from the user table. Events has a many-to-many relationship with User table through Register table. That is, a user has many events, and a event has many users.</p>
+    <p>Register</p>
+    <p>Register table is a join table for user and events. It joins them using uid (users) and event_id(Event).</p>
+    <p>Location</p>
+    <p>Location table is used to store the location description.</p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Sketch your user registration and management page flow.</div>
+    <div class="card-body text-dark">
+    <%= image_tag "pageflow.drawio.png", class: "img-fluid" %>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Using the techniques of test-first and behavior-driven development we've studied in class and lab, build up the basic user registration and login pages. Make sure you have SSL enabled for the complete application to prevent password sniffing, make sure your session cookies are HttpOnly.</div>
+    <div class="card-body text-dark">
+    <p>• User registration and login are implemented using "devise" gem in rails. We have further email confirmation when a new user wants to register.</p>
+    <p>• User can use forgot password to get a reset token to his/her mail.</p>
+    <p>• We added SSL for the website and forwarded http requests permanently to https. Hence, all the interactions will be authenticated.</p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Again, using BDD, build the user administration pages. Make sure admin can 1) see recently registered users, 2) ban a user, and 3) see statistics on user registrations.</div>
+    <div class="card-body text-dark">
+    <a href='https://gitlab.com/ait-wae-2021/web8/web8-app/-/blob/main/User%20Management%20Documentation.pdf/'>User Management Doc</a>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Use your issue tracker and CI server to their full potential. Start an issue in the issue tracker before you begin any work. Get email notification of broken builds running and get the CI server to report test coverage and code quality metrics.</div>
+    <div class="card-body text-dark">
+    <p>The screenshot of our Issue Tracker in our milestones is given below where we have created the recent issues in our milestone we have been working on as well the screenshot of the email notification that is sent to our registered email addresses with the recent issue created.</p>
+    <%= image_tag "mile.PNG", class: "img-fluid" %>
+    <hr>
+    <%= image_tag "issues.PNG", class: "img-fluid" %>
+    <hr>
+    <%= image_tag "email.png", class: "img-fluid" %>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Check your model for referential integrity and queries that take a long time and might require further optimization.</div>
+    <div class="card-body text-dark">
+    <p>Referential integrity is the relationships between different models/tables. Rails active record provides dynamic finder methods that are simple to use and fast to execute. For more details please check user data model figure.</p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+    <div class="card-header bg-dark text-white">Put your work online and push to your Git repo when you are done. Your site should now contain an index pointing to your \Basics " solutions and the \Documentation " for your site. We should also be able to see that your code and documentation have been checked in to git. Please also provide a link to your latest database dump somewhere on your site so that we can see that you've done the data definitions for user registration and management.</div>
+    <div class="card-body text-dark">
+    <p>find psql file at <a href='https://gitlab.com/ait-wae-2021/web8/web8-app/-/blob/4f6f25ddf3bdae58f4f78e17a249ac78cde89342/webproject/app/assets/backup_dump/20211018/20211018.psql'> psql File</a></p>
+    <p>find data file at <a href='https://gitlab.com/ait-wae-2021/web8/web8-app/-/blob/main/webproject/app/assets/backup_dump/data.txt'> data File</a></p>
+    </div>
+    </div>
+    </div>
+
+    <hr>
+    <hr>
+
+            
+
+</body>
+</html>

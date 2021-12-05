@@ -1,0 +1,61 @@
+<br>
+<%= form_tag searchevents_path, :method => 'get' do %>
+<%= text_field_tag :searchevent, params[:searchevent] %>
+<%= submit_tag "Search" %>
+<% end %>
+<br>
+<br>
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Time</th>
+      <th>Duration</th>
+      <th>Location</th>
+      <th>Status</th>
+      
+      <th>Details</th>
+
+      <% if is_admin? %>
+      <th colspan="2">Options</th>
+      <% end %>
+
+      <% if is_manager? %>
+        <% @events.each do |event| %>
+          <% if User.find_by_id(event.created_by).email == current_user.email %>
+            <th colspan="2">Options</th>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.time %></td>
+        <td><%= event.duration %></td>
+        <td><%= event.loc_name %></td>
+        <td><%= event.status %></td>
+
+
+        
+        <td><%= link_to "Show", event, class: "btn btn-warning btn-sm" %></td>
+       
+        <% if is_admin? %>
+          <td><%= link_to "Edit", edit_event_path(event), class: "btn btn-primary btn-sm" %></td>
+          <td><%= link_to "Destroy", event, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>
+        <% end %>
+        
+        <% if is_manager? %>
+          <% if User.find_by_id(event.created_by).email == current_user.email %>
+            <td><%= link_to "Edit", edit_event_path(event), class: "btn btn-primary btn-sm" %></td>
+            <td><%= link_to "Destroy", event, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>
+          <% end %>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

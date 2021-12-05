@@ -1,0 +1,2 @@
+document.getElementById("upvote-<%= @event.id %>").innerHTML = "<%= j render "events/upvote_link", event: @event %>";
+document.getElementById("votes-score-<%= @event.id %>").innerHTML = "<%= j render "events/votes_score", event: @event %>";

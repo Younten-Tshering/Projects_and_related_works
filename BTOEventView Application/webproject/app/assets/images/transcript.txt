@@ -1,0 +1,314 @@
+[Question 7]
+********* QUERY **********
+create table my_stocks ( symbol varchar(20) not null, n_shares integer not null, date_acquired date not null);
+**************************
+
+CREATE TABLE
+
+[Question 8]
+********* QUERY **********
+COPY  my_stocks ( symbol, n_shares, date_acquired ) FROM STDIN with (format text, delimiter '|');
+**************************
+
+COPY 6
+********* QUERY **********
+select * from my_stocks;
+**************************
+
+ symbol | n_shares | date_acquired 
+--------+----------+---------------
+ MIC    |       10 | 2021-01-18
+ KBD    |       20 | 2021-02-09
+ SCR    |        5 | 2021-07-16
+ CPU    |       15 | 2021-09-03
+ RAM    |       30 | 2021-08-08
+ AIR    |       10 | 2021-09-10
+(6 rows)
+
+
+********* QUERY **********
+create table stock_prices as select symbol, current_date as quote_date, 31.415 as price from my_stocks;
+**************************
+
+SELECT 6
+********* QUERY **********
+select * from stock_prices;
+**************************
+
+ symbol | quote_date | price  
+--------+------------+--------
+ MIC    | 2021-09-24 | 31.415
+ KBD    | 2021-09-24 | 31.415
+ SCR    | 2021-09-24 | 31.415
+ CPU    | 2021-09-24 | 31.415
+ RAM    | 2021-09-24 | 31.415
+ AIR    | 2021-09-24 | 31.415
+(6 rows)
+
+
+********* QUERY **********
+create table newly_acquired_stocks (symbol varchar(20) not null, n_shares integer not null, date_acquired date not null );
+**************************
+
+CREATE TABLE
+********* QUERY **********
+insert into newly_acquired_stocks(symbol, n_shares, date_acquired) select symbol, n_shares, date_acquired from my_stocks limit 4;
+**************************
+
+INSERT 0 4
+********* QUERY **********
+select * from newly_acquired_stocks;
+**************************
+
+ symbol | n_shares | date_acquired 
+--------+----------+---------------
+ MIC    |       10 | 2021-01-18
+ KBD    |       20 | 2021-02-09
+ SCR    |        5 | 2021-07-16
+ CPU    |       15 | 2021-09-03
+(4 rows)
+
+[Question 9]
+********* QUERY **********
+select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, (my_stocks.n_shares * stock_prices.price) as current_price from my_stocks join stock_prices on stock_prices.symbol = my_stocks.symbol;
+**************************
+
+ symbol | n_shares | price  | current_price 
+--------+----------+--------+---------------
+ MIC    |       10 | 31.415 |       314.150
+ KBD    |       20 | 31.415 |       628.300
+ SCR    |        5 | 31.415 |       157.075
+ CPU    |       15 | 31.415 |       471.225
+ RAM    |       30 | 31.415 |       942.450
+ AIR    |       10 | 31.415 |       314.150
+(6 rows)
+
+[Question 10]
+********* QUERY **********
+insert into my_stocks (symbol, n_shares, date_acquired) values ('SSD', 20, '2021-09-23');
+**************************
+
+INSERT 0 1
+********* QUERY **********
+select * from my_stocks;
+**************************
+
+ symbol | n_shares | date_acquired 
+--------+----------+---------------
+ MIC    |       10 | 2021-01-18
+ KBD    |       20 | 2021-02-09
+ SCR    |        5 | 2021-07-16
+ CPU    |       15 | 2021-09-03
+ RAM    |       30 | 2021-08-08
+ AIR    |       10 | 2021-09-10
+ SSD    |       20 | 2021-09-23
+(7 rows)
+
+********* QUERY **********
+select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, (my_stocks.n_shares * stock_prices.price) as current_price from my_stocks full  join stock_prices on stock_prices.symbol = my_stocks.symbol;
+**************************
+
+ symbol | n_shares | price  | current_price 
+--------+----------+--------+---------------
+ MIC    |       10 | 31.415 |       314.150
+ KBD    |       20 | 31.415 |       628.300
+ SCR    |        5 | 31.415 |       157.075
+ CPU    |       15 | 31.415 |       471.225
+ RAM    |       30 | 31.415 |       942.450
+ AIR    |       10 | 31.415 |       314.150
+ SSD    |       20 |        |              
+(7 rows)
+
+[Question 11]
+********* QUERY **********
+select * from stock_prices;
+**************************
+
+ symbol | quote_date | price  
+--------+------------+--------
+ MIC    | 2021-09-24 | 31.415
+ KBD    | 2021-09-24 | 31.415
+ SCR    | 2021-09-24 | 31.415
+ CPU    | 2021-09-24 | 31.415
+ RAM    | 2021-09-24 | 31.415
+ AIR    | 2021-09-24 | 31.415
+(6 rows)
+
+********* QUERY **********
+CREATE OR REPLACE FUNCTION stock_value(symbol varchar) RETURNS decimal AS $$
+DECLARE
+	c char;
+	total_stock decimal := 0.0;
+BEGIN
+	<< "SUM" >>
+	FOREACH c IN ARRAY regexp_split_to_array(symbol, '') LOOP
+		total_stock := total_stock + ASCII(c);
+	END LOOP "SUM";
+	RETURN total_stock;
+END;
+$$ LANGUAGE plpgsql;
+**************************
+
+CREATE FUNCTION
+********* QUERY **********
+UPDATE stock_prices SET price = stock_value(symbol);
+**************************
+
+UPDATE 6
+********* QUERY **********
+select * from stock_prices;
+**************************
+
+ symbol | quote_date | price 
+--------+------------+-------
+ MIC    | 2021-09-24 | 217.0
+ KBD    | 2021-09-24 | 209.0
+ SCR    | 2021-09-24 | 232.0
+ CPU    | 2021-09-24 | 232.0
+ RAM    | 2021-09-24 | 224.0
+ AIR    | 2021-09-24 | 220.0
+(6 rows)
+
+********* QUERY **********
+CREATE OR REPLACE FUNCTION portfolio_value() RETURNS decimal AS $$
+
+        DECLARE
+                recordvar RECORD;
+                agg_value decimal := 0.0;
+                join_cur CURSOR FOR
+                        SELECT my_stocks.symbol, (n_shares * price) as current_value
+                        FROM my_stocks
+                        JOIN stock_prices
+                        USING(symbol);
+
+        BEGIN
+                FOR recordvar in join_cur
+                LOOP
+                        agg_value := agg_value + recordvar.current_value;
+                END LOOP;
+
+                RETURN agg_value;
+        END;
+$$ LANGUAGE plpgsql;
+**************************
+
+CREATE FUNCTION
+********* QUERY **********
+select portfolio_value()
+;
+**************************
+
+ portfolio_value 
+-----------------
+         19910.0
+(1 row)
+
+
+[Question 12]
+********* QUERY **********
+select round(avg(price),2) as average_price from stock_prices;
+**************************
+
+ average_price 
+---------------
+        222.33
+(1 row)
+
+********* QUERY **********
+insert into my_stocks select my_stocks.symbol, (my_stocks.n_shares * 2) as n_shares, current_date as date_acquired from my_stocks, stock_prices where my_stocks.symbol = stock_prices.symbol and stock_prices.price > (select avg(price) from stock_prices);
+**************************
+
+INSERT 0 3
+********* QUERY **********
+select * from my_stocks;
+**************************
+
+ symbol | n_shares | date_acquired 
+--------+----------+---------------
+ MIC    |       10 | 2021-01-18
+ KBD    |       20 | 2021-02-09
+ SCR    |        5 | 2021-07-16
+ CPU    |       15 | 2021-09-03
+ RAM    |       30 | 2021-08-08
+ AIR    |       10 | 2021-09-10
+ SSD    |       20 | 2021-09-23
+ SCR    |       10 | 2021-09-24
+ CPU    |       30 | 2021-09-24
+ RAM    |       60 | 2021-09-24
+(10 rows)
+
+********* QUERY **********
+select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, (my_stocks.n_shares * stock_prices.price) as current_price from my_stocks full  join stock_prices on stock_prices.symbol = my_stocks.symbol;
+**************************
+
+ symbol | n_shares | price | current_price 
+--------+----------+-------+---------------
+ MIC    |       10 | 217.0 |        2170.0
+ KBD    |       20 | 209.0 |        4180.0
+ SCR    |        5 | 232.0 |        1160.0
+ CPU    |       15 | 232.0 |        3480.0
+ RAM    |       30 | 224.0 |        6720.0
+ AIR    |       10 | 220.0 |        2200.0
+ SSD    |       20 |       |              
+ SCR    |       10 | 232.0 |        2320.0
+ CPU    |       30 | 232.0 |        6960.0
+ RAM    |       60 | 224.0 |       13440.0
+(10 rows)
+
+********* QUERY **********
+select symbol, sum(n_shares) as total_shares_held from my_stocks group by symbol;
+**************************
+
+ symbol | total_shares_held 
+--------+-------------------
+ SCR    |                15
+ CPU    |                45
+ MIC    |                10
+ SSD    |                20
+ RAM    |                90
+ AIR    |                10
+ KBD    |                20
+(7 rows)
+
+********* QUERY **********
+select ms.symbol, ms.sum * sp.price as total_value_held from (select symbol, sum(n_shares) from my_stocks group by symbol) as ms join stock_prices as sp on ms.symbol = sp.symbol;
+**************************
+
+ symbol | total_value_held 
+--------+------------------
+ MIC    |           2170.0
+ KBD    |           4180.0
+ SCR    |           3480.0
+ CPU    |          10440.0
+ RAM    |          20160.0
+ AIR    |           2200.0
+(6 rows)
+
+********* QUERY **********
+select ms.symbol, n_shares as total_shares_held, price * n_shares as total_values_held from (select symbol, sum(n_shares) as n_shares from my_stocks group by symbol having count(symbol)>1) as ms join stock_prices as sp on ms.symbol = sp.symbol;
+**************************
+
+ symbol | total_shares_held | total_values_held 
+--------+-------------------+-------------------
+ SCR    |                15 |            3480.0
+ CPU    |                45 |           10440.0
+ RAM    |                90 |           20160.0
+(3 rows)
+
+[Question 13]
+********* QUERY **********
+create view stocks_i_like as select ms.symbol, n_shares as total_shares_held, price * n_shares as total_values_held from (select symbol, sum(n_shares) as n_shares from my_stocks group by symbol having count(symbol)>1) as ms join stock_prices as sp on ms.symbol = sp.symbol;
+**************************
+
+CREATE VIEW
+********* QUERY **********
+select * from stocks_i_like;
+**************************
+
+ symbol | total_shares_held | total_values_held 
+--------+-------------------+-------------------
+ SCR    |                15 |            3480.0
+ CPU    |                45 |           10440.0
+ RAM    |                90 |           20160.0
+(3 rows)
+

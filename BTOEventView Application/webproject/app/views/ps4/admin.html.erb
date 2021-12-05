@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+    <% if is_admin? %>
+
+    <div class="container-fluid">
+    <div class="row justify content center">
+        <div class="col-md-7">
+            <h1>Admin</h1>
+
+            <%= link_to "<button class='btn btn-dark' type='button'>Recently Registered Users</button>".html_safe, controller: :ps4, action: :view %>
+            <%= link_to "<button class='btn btn-dark' type='button'>User Stats</button>".html_safe, controller: :ps4, action: :stat %>
+            <%= link_to "<button class='btn btn-dark' type='button'>Ban Users</button>".html_safe, controller: :ps4, action: :ban_users %>
+            <%= link_to "<button class='btn btn-dark' type='button'>Events</button>".html_safe, controller: :events, action: :index %>
+        </div>
+    </div>
+    </div>
+
+    <% else %>
+    <p><b>You Cannot Access The Page</b><p>
+
+
+    <% end %>
+<% end %>
+
+
+

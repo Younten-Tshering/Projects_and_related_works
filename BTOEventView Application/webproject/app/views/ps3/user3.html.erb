@@ -1,0 +1,201 @@
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body-user1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">WAE-2021</a>
+    <span class="navbar-text"><strong>Group: </strong> <%= @group.name %></span>
+    <span class="navbar-text"><strong>Members: </strong> <%= @group.members %></span>
+    </nav>
+    <br>
+
+
+    <div class="container">
+    <div id="content" class="content p-0">
+    <div class="profile-header">
+        <div class="profile-header-cover"></div>
+
+        <div class="profile-header-content">
+            <div class="profile-header-img">
+                <img src="data:image/jpeg;base64,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" alt="" />
+            </div>
+
+            <div class="profile-header-info">
+                <h4 class="m-t-sm">Younten</h4>
+                
+            </div>
+        </div>
+
+        <ul class="profile-header-tab nav nav-tabs">
+            
+            
+        </ul>
+    </div>
+
+    <div class="profile-container">
+        <div class="row row-space-20">
+            <div class="col-md-8">
+                <div class="tab-content p-0">
+                    <div class="tab-pane active show" id="profile-about">
+                        <table class="table table-profile">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">User's Short-Term and Long-Term Goals</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="field">Short-Term Goal</td>
+                                    <td class="value">
+                                        <div class="m-b-5">
+                                            
+                                            <span class="text-muted">To monitor users on the system</span>
+                                        </div>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">Long-Term Goal</td>
+                                    <td class="value">
+                                        <div class="m-b-5">
+                                            
+                                            <span class="text-muted">To maintain the system changes and versioning</span>
+                                        </div>
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-profile">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Immediate Question</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="field"></td>
+                                    <td class="value">
+                                        
+                                        How the roles of the users can be changed.
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-profile">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Computer equipment and connection in this person's house</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="field">Mobile Phones</td>
+                                    <td class="value">
+                                        
+                                        Oneplus
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">Other Devices</td>
+                                    <td class="value">
+                                        
+                                        Linux, Windows10 pc and Tablet.                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-profile">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">BASIC INFORMATION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="field">Age</td>
+                                    <td class="value">
+                                        25
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">Gender</td>
+                                    <td class="value">
+                                        Male
+                                        
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="field">Martial Status</td>
+                                    <td class="value">
+                                        Not Married
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">Housing Situation</td>
+                                    <td class="value">
+                                        Permanent
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">Income</td>
+                                    <td class="value">
+                                        70000 thb
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 hidden-xs hidden-sm">
+                <ul class="profile-info-list">
+                    <li class="title">PERSONAL INFORMATION</li>
+                    <li>
+                        <div class="field">Occupation:</div>
+                        <div class="value">Administrator</div>
+                    </li>
+                
+                    <li>
+                        <div class="field">Country:</div>
+                        <div class="value">Bhutan</div>
+                    </li>
+                    <li>
+                        <div class="field">Address:</div>
+                        <div class="value">
+                            <address class="m-b-0">
+                               <br />
+                                923 Tick Street,<br />
+                                Timphu, Bhutan 94103
+                            </address>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="field">Phone No.:</div>
+                        <div class="value">
+                            (123) 456-7890
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+</div>
+
+
+    
+
+
+</body-user1>
+</html>

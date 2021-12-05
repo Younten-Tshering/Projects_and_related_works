@@ -1,0 +1,99 @@
+<div class="col-md-4 offset-md-4">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Add New Event</h4>
+
+
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-outline mb-4">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :description, class: 'form-label'  %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :keyword, class: 'form-label'  %>
+    <%= form.text_field :keyword, class: 'form-control', placeholder: 'Enter keyword for faster search' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :time, class: 'form-label'  %>
+    <%= form.datetime_select :time, class: 'form-control' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :duration, class: 'form-label'  %>
+    <%= form.number_field :duration, :min => 0, :max => 100, class: 'form-control', placeholder: 'Enter number of days' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :url, class: 'form-label'  %>
+    <%= form.text_field :url, class: 'form-control' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :loc_name, 'Location Name', class: 'form-label'  %>
+    <%= form.text_field :loc_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :loc_lot, class: 'form-label hidden' %>
+    <%= form.hidden_field :loc_lot, class: 'form-control' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :loc_lat, class: 'form-label hidden'  %>
+    <%= form.hidden_field :loc_lat, class: 'form-control hidden' %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :status, class: 'form-label' %><br />
+    <%= form.select :status, ['Upcoming', 'Ongoing', 'Completed'], class: 'form-select form-control', autofocus: true, autocomplete: 'status' %>
+  </div>
+
+  <div class="text-center">
+  <p> Click to delete images </p>
+  <% if @event.images.attached? %>
+    <% @event.images.each do |image| %>
+      <% if image.representable? %>
+        <%= link_to image_tag(url_for(image), class: "img-fluid img-thumbnail img-delete"), purge_image_path(image), method: :delete, data: { confirm: 'Delete?' } %>
+        <% end %>
+    <% end %>
+  <% end %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.label :images, class: 'form-label'  %>
+    <%= form.file_field :images, multiple: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-outline mb-4 hidden">
+    <%= form.label :created_by, class: 'form-label'  %>
+    <%= form.text_field :created_by, :value => (current_user.id), :readonly => true, class: 'form-control' %>
+  </div>
+  
+  <div class="actions form-label">
+    <%= form.submit 'Create', class: 'btn btn-primary form-label' %>
+  </div>
+<% end %>
+
+</div>
+</div>
+</div>
+

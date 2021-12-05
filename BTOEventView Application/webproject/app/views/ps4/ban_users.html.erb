@@ -1,0 +1,73 @@
+<% if user_signed_in? %>
+    <% if is_admin? %>
+
+<div class="container-fluid">
+  <div class="row justify content center">
+    <div class="container">
+      <h1>Users</h1>
+      <br>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <%= form_tag ps4_ban_users_path, :method => 'get' do %>
+      <div class="input-group">
+      <%= text_field_tag :search, params[:search], placeholder: "Enter", class: "form-control" %>
+      <%= submit_tag "Search", class: 'btn btn-success'%>
+      </div>
+      <% end %>
+      </div>
+      <br>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Designation?</th>
+            <th scope="col">Banned?</th>
+            <th scope="col">Option</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <% @users.each do |person| %>
+            <tr>
+                <th scope="row"><%= person.first_name %></th>
+                <th scope="row"><%= person.email %></th>
+                <td><%= person.designation %></td>
+                <td><%= person.active %></td> 
+                <% if person.role_id != 24 %>
+                <% if person.active? %>
+                    <td><%= link_to 'UnBan', {controller: :ps4, action: :ban_users, :id => person.id}, data: { confirm: 'Are you sure?' }, class: 'bups4 btn btn-danger' %></td>
+                <% else %>
+                    <td><%= link_to 'Ban', {controller: :ps4, action: :ban_users, :id => person.id}, data: { confirm: 'Are you sure?' }, class: 'bups4 btn btn-primary' %></td>
+                <% end %>
+                <% else %>
+                    <td><strong>Admin</strong></td>
+                <% end %>
+                  
+                <% if person.role_id == 25 %>
+                  <td><%= link_to 'Member', {controller: :ps4, action: :user_role, :id => person.id}, data: { confirm: 'Are you sure?' }, class: 'bups4 btn btn-danger' %></td>
+                <% elsif person.role_id == 26 %>
+                  <td><%= link_to 'Manager', {controller: :ps4, action: :user_role, :id => person.id}, data: { confirm: 'Are you sure?' }, class: 'bups4 btn btn-primary' %></td>
+                <% else %>
+                  <td><strong>Admin</strong></td>
+                <% end %>
+                
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  <% else %>
+  <p><b>You Cannot Access The Page</b><p>
+  <% end %>
+<% end %>  
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
