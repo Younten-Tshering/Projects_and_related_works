@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   get 'ps6/index'
   get 'ps5/index'
+  resources :searches
   resources :events do
     member do
       patch 'upvote', to: 'events#upvote'
@@ -56,6 +57,18 @@ Rails.application.routes.draw do
 
   get 'ps4/userp'
   post 'ps4/userp'
+
+  get 'home/problemset'
+  post 'home/problemset'
+
+  get 'home/about'
+  post 'home/about'
+
+  get 'home/contact'
+  post 'home/contact'
+
+  get 'events/tableView'
+  post 'events/tableView'
 
   get 'ps2/quotationssearch'
   get 'ps2/importxml' => 'ps2#importxml'

@@ -50,8 +50,8 @@ class Event < ApplicationRecord
 
   def self.searchevent(searchevent)
     if searchevent
-      where(['lower(name) LIKE lower(?) OR lower(loc_name) LIKE lower(?) OR lower(keyword) LIKE lower(?)',
-             "%#{searchevent}%", "%#{searchevent}%", "%#{searchevent}%"])
+      where(['lower(name) LIKE lower(?) OR lower(loc_name) LIKE lower(?) OR lower(keyword) LIKE lower(?) OR lower(status) LIKE lower(?)',
+             "%#{searchevent}%", "%#{searchevent}%", "%#{searchevent}%", "%#{searchevent}"])
     else
       all
     end

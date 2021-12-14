@@ -12,7 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+
+ //@import "bootstrap";
+
 .button:visited {
     color: white;
 }
@@ -24,5 +28,12 @@
 #navh:hover{
     background-color: transparent;
 }
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+
 
 

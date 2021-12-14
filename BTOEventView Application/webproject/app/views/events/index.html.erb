@@ -25,85 +25,89 @@
 </div>
 <% end %>
 </div>
-<br>
 
 
 
-
-<div class="table-div" style="overflow: auto; height: 500px;">
-<table class="table table-hover table-responsive">
-  <thead class="table-dark" style="position: sticky; top:0">
-    <tr>
-      <th>Name</th>
-      <th>Time</th>
-      <th>Duration</th>
-      <th>Location</th>
-      <th>Status</th>
-      <th>QR Code</th>
-      
-      
-      <th>Details</th>
-
-      <th>Like</th>
-      <th>Likes</th>
-
-      
-
-      <% if is_admin? %>
-      <th colspan="2">Options</th>
-      <% end %>
-      
-
-      <% if is_manager? %>
-        <% @events.each do |event| %>
-          <% if User.find_by_id(event.created_by).email == current_user.email %>
-            <th colspan="2">Options</th>
-          <% end %>
-        <% end %>
-      <% end %>
-
-
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.time %></td>
-        <td><%= event.duration %></td>
-        <td><%= event.loc_name %></td>
-        <td><%= event.status %></td>
-        <td><%= image_tag(event.qr_code) if event.qr_code.attached? %></td>
-       
-
-
-        
-        <td><%= link_to "Show", event, class: "butshow btn btn-warning btn-sm" %></td>
-
-        <td><%= render "events/upvote_link", event: event %></td>
-        <td><%= render "events/votes_score", event: event %></td>
-       
-        <% if is_admin? %>
-          <td><%= link_to "Edit", edit_event_path(event), class: "butevent btn btn-primary btn-sm" %></td>
-          <td><%= link_to "Destroy", event, method: :delete, data: { confirm: "Are you sure?" }, class: "butevent btn btn-danger btn-sm" %></td>
-        <% end %>
-        
-        <% if is_manager? %>
-          <% if User.find_by_id(event.created_by).email == current_user.email %>
-            <td><%= link_to "Edit", edit_event_path(event), class: "butevent btn btn-primary btn-sm" %></td>
-            <td><%= link_to "Destroy", event, method: :delete, data: { confirm: "Are you sure?" }, class: "butevent btn btn-danger btn-sm" %></td>
-          <% end %>
-        <% end %>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
 
 <br>
+<br>
+
+<!--a asdas --> 
+
+<div class="container">
+<div class="row">
+
+<% @events.each do |event| %>
+
+    <div class="col-lg-4">
+        <div class="card card-margin">
+            <div class="card-header no-border">
+                <h5 class="card-title"><%= event.name %></h5>
+            </div>
+            <div class="card-body pt-0">
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-primary">
+                            <span class="widget-49-date-day"><%= event.time.strftime("%e") %></span>
+                            <span class="widget-49-date-month"><%= event.time.strftime("%b") %></span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">Location: <%= event.loc_name %></span>
+                            <span class="widget-49-meeting-time">Start: <%= event.time.strftime("%H:%M") %> Duration: <%= event.duration %> hours</span>
+                            <span class="widget-49-meeting-time">Status: <%= event.status %></span>
+                        </div>
+                    </div>
+                    <ol class="widget-49-meeting-points">
+                    
+                    <% if event.images.attached? %>
+                      <% event.images.each do |image| %>
+                        <% if image.representable? %>
+                          <image src="<%= (url_for(image)) %>" class="img-fluid img-thumbnail" style="width:90%;">
+                        <% end %>
+                        <% break %>
+                      <% end %>
+                    <% end %>
+                        
+                    </ol>
+                    <div class="widget-49-meeting-action">
+                      <%= link_to "Details", event, class: "btn btn-sm btn-flash-border-primary" %>
+                    </div>
+
+                    <div class="widget-49-title-wrapper">
+                    <%= image_tag(event.qr_code) if event.qr_code.attached? %>
+                    </div>
+
+                    <div class="widget-49-title-wrapper">
+                    <%= render "events/upvote_link", event: event %>
+                    <i class="fa fa-heart" style="color:red"></i><%= render "events/votes_score", event: event %>
+                      
+                    <% if is_admin? %>
+                      <%= link_to "", edit_event_path(event), class: "fa fa-edit fa-2x butevent btn btn-primary btn-sm" %>
+                      <%= link_to "", event, method: :delete, data: { confirm: "Are you sure?" }, class: "fa fa-trash fa-2x butevent btn btn-primary btn-sm" %>
+                    <% end %>
+                    
+                    <% if is_manager? %>
+                      <% if User.find_by_id(event.created_by).email == current_user.email %>
+                        <%= link_to "", edit_event_path(event), class: "fa fa-edit fa-2x btn btn-primary btn-sm" %>
+                        <%= link_to "", event, method: :delete, data: { confirm: "Are you sure?" }, class: "fa fa-trash fa-2x btn btn-primary btn-sm" %>
+                      <% end %>
+                    <% end %>
+                    
+                    </div>
+
+                    
+               
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>   
 </div>
+</div>
+
+
 
 <% end %>
 <% end %>

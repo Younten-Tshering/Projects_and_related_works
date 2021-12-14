@@ -17,6 +17,8 @@ class EventsController < ApplicationController
     @events = Event.searchevent(params[:searchevent])
   end
 
+  def tableView; end
+
   def upvote
     @event = Event.find(params[:id])
     if current_user.voted_up_on? @event

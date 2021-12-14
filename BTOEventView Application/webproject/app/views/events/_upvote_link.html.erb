@@ -1,9 +1,9 @@
 <%= content_tag "div", id: "upvote-#{event.id}" do %>
-    <%= link_to upvote_event_path(event), method: :patch, remote: true, class: "btn btn-primary btn-sm" do %>
+    <%= link_to upvote_event_path(event), method: :patch, remote: true, class: "butevent btn btn-primary btn-sm" do %>
         <% if current_user.voted_up_on? event %>
-            UnLike
+            <i class= "fa fa-thumbs-up" ></i>
         <% else %>
-            Like
+            <i class= "fa fa-thumbs-o-up" ></i>
         <% end %>
     <% end %>
 <% end %>

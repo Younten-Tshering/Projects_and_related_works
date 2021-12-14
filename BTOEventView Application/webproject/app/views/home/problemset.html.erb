@@ -1,0 +1,148 @@
+<html>
+<head>
+
+</head>
+<body>
+    <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">WAE-2021</a>
+    <span class="navbar-text"><strong>Group: </strong> <%= @group.name %></span>
+    <span class="navbar-text"><strong>Members: </strong> <%= @group.members %></span>
+    </nav> -->
+
+    <br>
+    
+
+    <div class="row m-0 pd-2">
+    
+    <div class="card border-dark mb-3 p-0 m-2" style="max-width: 16rem;">
+    <div class="card-header">Problem Set 1</div>
+    <div class="card-body">
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">World News</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= button_to "Get Articles", scrape_home_index_path, class: "btn btn-light" %><p>
+    </div>
+    </div>
+    <br>
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Divide by Zero</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= button_to "Check", divide_home_index_path, class: "btn btn-light" %><p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="card border-dark mb-3 p-0 m-2" style="max-width: 16rem;">
+    <div class="card-header">Problem Set 2</div>
+    <div class="card-body">
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Quotations</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= button_to "View Quotations", ps2_quotations_path, class: "btn btn-light" %><p>
+    </div>
+    </div>
+    <br>
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">SQL</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= link_to "Get SQL File", asset_url("transcript.txt"), class: "btn btn-light" %><p> 
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="card border-dark mb-3 p-0 m-2" style="max-width: 16rem;">
+    <div class="card-header">Problem Set 3</div>
+    <div class="card-body">
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Planning, Odds and Ends</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= button_to "View PS3", ps3_index_path, class: "btn btn-light" %><p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="card border-dark mb-3 p-0 m-2" style="max-width: 16rem;">
+    <div class="card-header">Problem Set 4</div>
+    <div class="card-body">
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Odds, Ends, and User Management</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= button_to "View PS4", ps4_index_path, class: "btn btn-light" %><p>
+    </div>
+    </div>
+    <br>
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Document</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <a href='https://gitlab.com/ait-wae-2021/web8/web8-app/-/blob/main/PS4%20and%20project%20progress%20Documentation.pdf' class="btn btn-light">Get Documentation</a>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="card border-dark mb-3 p-0 m-2" style="max-width: 16rem;">
+    <div class="card-header">Problem Set 5</div>
+    <div class="card-body">
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Content Management Part I</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= button_to "View PS5", ps5_index_path, class: "btn btn-light" %><p>
+    </div>
+    </div>
+    <br>
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Document</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <a href='https://gitlab.com/ait-wae-2021/web8/web8-app/-/blob/main/PS5%20and%20Project%20workflow%20Design%20Documentation.pdf' class="btn btn-light">Get Ps5 Doc</a>
+    </div>
+    </div>
+    <br>
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">Content Management Manual</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <a href='https://gitlab.com/ait-wae-2021/web8/web8-app/-/blob/main/Content%20Management%20Documentation.pdf' class="btn btn-light">Get Manual</a>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="card border-dark mb-3 p-0 m-2" style="max-width: 16rem;">
+    <div class="card-header">Problem Set 6</div>
+    <div class="card-body">
+    <div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
+    <div class="card-header">User Evaluation</div>
+    <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p><%= button_to "View PS6", ps6_index_path, class: "btn btn-light" %><p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    </div>
+ 
+
+   
+    
+
+
+
+</body>
+</html>

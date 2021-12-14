@@ -35,7 +35,7 @@ Test application:
     - cd webproject
     - bundle config set --local path '.bundle'
     - bundle install
-    #- bundle exec rubocop
+    - bundle exec rubocop
     - yarn install --check-files
     - su postgres -c "initdb -D /var/lib/postgresql/data"
     - mkdir -p /run/postgresql
@@ -43,14 +43,14 @@ Test application:
     - su postgres -c "pg_ctl start -D /var/lib/postgresql/data"
     - su postgres -c "createuser -s root"
     - bundle exec rake db:create
-   # - bundle exec rails active_storage:install
+    - bundle exec rails active_storage:install
     - bundle exec rake db:migrate
-    #- bundle exec rake test
-    #- bundle exec cucumber --format html --out cucumber-report.html
+    - bundle exec rake test
+    - bundle exec cucumber --format html --out cucumber-report.html
   artifacts:
     paths:
-      #- webproject/coverage/
-      #- webproject/cucumber-report.html
+      - webproject/coverage/
+      - webproject/cucumber-report.html
       - webproject/.bundle
 
 pages:
@@ -59,8 +59,8 @@ pages:
     - Test application
   image: $CI_REGISTRY_IMAGE
   script:
-    #- cp -r webproject/coverage gitlab-pages/
-    #- cp webproject/cucumber-report.html gitlab-pages/
+    - cp -r webproject/coverage gitlab-pages/
+    - cp webproject/cucumber-report.html gitlab-pages/
     - cd gitlab-pages
     - gem install bundler
     - bundle install
